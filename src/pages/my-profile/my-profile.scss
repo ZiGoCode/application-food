@@ -1,0 +1,90 @@
+page-myuser {
+
+    
+
+}
+.div-badge{
+    background-color: #f43d3d;
+    opacity: 0.9 !important;
+    text-align: center !important;
+    position: absolute;
+    color: #ffffff;
+    top: 0.5rem !important;
+    left: 3rem;
+    border-radius: 50% !important;
+    padding: 3px !important;
+    padding-left: 6px !important;
+    padding-right: 6px !important;
+    font-size: 10px !important; 
+    font-weight: bold;
+}
+
+ion-avatar img  {
+    width:100% !important;
+    height : 100% !important;
+    max-width: 100px !important;  //any size
+    max-height: 100px !important; //any size
+    position: relative;
+    margin: auto;
+}
+.item-center{ 
+    text-align: center!important;
+    height: 180px;
+}
+.text-12x{
+    font-size:20px;
+}
+.text-14x{
+    font-size: 18px;
+}   
+.item-size{
+    min-height: 1.3rem;
+    background-color: #dfdfdf;
+}
+.text-margin{
+    text-indent: 10px; 
+}   
+.button-inner{
+    font-size: 18px;     
+}      
+.icon-20x{ 
+    font-size: 27px;    
+    position: absolute;
+    left: 5%;
+    top: 20%; 
+    color: #FF6C00;
+}
+.icon-21x{
+    font-size: 27px;    
+    position: absolute;
+    left: 5%;
+    top: 20%; 
+    color: #444444;
+}   
+.icon-23x{
+    font-size: 27px;    
+    position: absolute;
+    left: 5%; 
+    top: 20%; 
+}    
+.text-left{
+    position: absolute;
+    top: 25%;
+    left: 15%;
+    text-align: left!important;
+    font-size: 16px;
+    
+}
+.text-left-color{
+    position: absolute;
+    top: 25%;
+    left: 15%;
+    text-align: left!important;
+    font-size: 16px; 
+    // font-weight: bold;
+    color: #ff0000;
+}
+.item-size{  
+    height: 10px; 
+}
+ 

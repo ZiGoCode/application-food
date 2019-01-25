@@ -1,0 +1,48 @@
+<ion-header>
+
+    <ion-navbar color="secon">
+        <ion-title>
+            <ion-icon name="ios-create"></ion-icon>
+            Restaurant
+        </ion-title>
+    </ion-navbar>
+
+</ion-header>
+
+
+<ion-content class="hetder">
+
+    <div class="div-hetder">
+        <span ion-text color="danger1" class="fontRSU">หมายเหตุ* </span>
+        <span class="fontRSU">กดอัพโหลดทุกครั้งเมื่อมีการเพิ่มเมนู</span>
+    </div>
+
+    <div class="item-size2"></div>
+    <ion-list no-lines>
+        <div *ngFor="let item of items | async">
+            <ion-item-sliding class="polaro" no-lines>
+                <ion-item class="bts-w" (click)="editRest(item)">
+                    <div item-start class="div-imgbuy">
+                        <img src="../../assets/imgs/icon.png">
+                    </div>
+                    <div class="div-conten">
+                        <h3 ion-text color="danger4" class="text-ag1">{{ item.title }}</h3>
+                        <p ion-text color="danger3" class="text-ag2">{{ item.type }}</p>
+                        <p class="text-ag2">
+                            <span ion-text color="dark2"> {{ item.sub }},{{ item.district }},{{ item.province }}</span>
+                        </p>
+                    </div>
+                </ion-item>
+                <ion-item-options side="right">
+                    <button ion-button color="secon" (click)="editRestaurant(item)">
+                        <ion-icon name="ios-cloud-upload-outline"></ion-icon>
+                        Upload
+                    </button>
+                </ion-item-options>
+            </ion-item-sliding>
+            <div class="item-size2"></div>
+        </div>
+    </ion-list>
+
+
+</ion-content>

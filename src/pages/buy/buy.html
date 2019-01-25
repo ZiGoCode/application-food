@@ -1,0 +1,116 @@
+<ion-header no-border>
+    <ion-navbar hideBackButton color="danger2">
+        <ion-buttons start navPop>
+            <button ion-button icon-only icon-start>
+                <ion-icon name="ios-arrow-back"></ion-icon>
+            </button>
+        </ion-buttons>
+        <ion-title>
+            <span ion-text>Buy</span>
+        </ion-title>
+        <ion-buttons end>
+            <button ion-button icon-start (click)="clickHome()">
+                <ion-icon name="md-home"></ion-icon>
+            </button>
+        </ion-buttons>
+    </ion-navbar>
+</ion-header>
+
+<ion-content>
+    <div class="div-hetder">
+        <span ion-text color="danger1" class="fontRSU">หมายเหตุ* </span>
+        <span class="fontRSU">กรุณาเลือกโต๊ะอาหารที่นั้ง</span>
+    </div>
+    <ion-list no-lines>
+        <div *ngFor="let item of itemsBuy | async">
+            <ion-item-sliding class="polaro" no-lines>
+                <ion-item class="bts-w">
+                    <div item-start class="div-imgbuy">
+                        <img src="../../assets/imgs/dishes/dish01m.jpg">
+                    </div>
+                    <div class="div-conten">
+                        <h3 ion-text color="danger4" class="fontRSU text-ag1">{{ item.title }}</h3>
+                        <p ion-text color="danger3" class="text-ag2">{{ item.type }}</p>
+                        <p class="text-ag2">
+                            <span ion-text color="dark2" class="fontRSU">จำนวน </span>
+                            <span ion-text color="dark2">{{ item.number }}</span>
+                            <span ion-text color="dark2" class="fontRSU"> ราคา</span>
+                            <span ion-text color="danger3"> {{ item.price }}</span>
+                            <span ion-text color="dark2" class="fontRSU"> บาท</span>
+                        </p>
+                    </div>
+                </ion-item>
+                <ion-item-options side="right">
+                    <button ion-button color="danger1" (click)="delete(item)">
+                        <ion-icon name="md-trash"></ion-icon>
+                        Delete
+                    </button>
+                </ion-item-options>
+            </ion-item-sliding>
+            <div class="item-size2"></div>
+        </div>
+        <div padding *ngIf="bass > 0">
+            <ion-card no-margin margin-vertical class="full-width">
+                <ion-card-content>
+                    <ion-grid>
+                        <ion-row>
+                            <ion-col>
+                                <ion-label stacked ion-text color="secon" class="text-al">
+                                    <span ion-text color="red">*</span>
+                                    <span ion-text class="fontRSU">หมายเหตุ</span>
+                                    <span class="fontRSU" ion-text color="dark">ส่วนประสมของหาอาร</span>
+                                </ion-label>
+                                <ion-textarea [(ngModel)]="noteDish.note" rows="3" type="text" ion-text color="dark"></ion-textarea>
+                            </ion-col>
+                        </ion-row>
+                    </ion-grid>
+                </ion-card-content>
+            </ion-card>
+        </div>
+    </ion-list>
+
+    <div class="div-notdata" text-center *ngIf="bass == 0">
+        <ion-icon class="icon-notdata" name="ios-help-circle"></ion-icon>
+        <br>
+        <samp ion-text color="dark3">No Information</samp>
+    </div>
+
+</ion-content>
+
+<ion-footer no-border>
+    <div class="col-cout">
+        <span class="text-buy fontRSU">ราคารวม : </span>
+        <span class="text-number">{{ element }}</span>
+        <samp class="text-buy fontRSU"> บาท</samp>
+    </div>
+    <ion-toolbar color="light2" class="footer-size">
+        <ion-row class="row-footer">
+
+            <ion-col no-padding no-margin col-4>
+                <div class="div-table">
+                    <span class="text-table fontRSU">รหัสโต๊ะ : </span>
+                    <span ion-text color="danger4">{{ keyTeble }}</span>
+                </div>
+            </ion-col>
+
+            <ion-col no-padding no-margin col-2 class="col-footer2" (click)="showRadio()">
+                <div class="div-footer2">
+                    <ion-icon name="custom-table"></ion-icon>
+                </div>
+                <div class="div-table">
+                    <span class="text-ble fontRSU">เลือกโต๊ะ</span>
+                </div>
+            </ion-col>
+
+            <ion-col col-6 class="col-footer3" (click)="onBuy(noteDish)">
+                <div class="div-footer3">
+                    <ion-icon name="ios-cash"></ion-icon>
+                </div>
+                <div class="div-footer4">
+                    <span class="text-size">Buy</span>
+                </div>
+            </ion-col>
+
+        </ion-row>
+    </ion-toolbar>
+</ion-footer>

@@ -1,0 +1,110 @@
+<ion-header>
+
+    <ion-navbar hideBackButton color="secon">
+        <ion-buttons start>
+            <button ion-button icon-only icon-start color="advice" (click)="onPop()">
+                <ion-icon name="ios-arrow-back"></ion-icon>
+            </button>
+        </ion-buttons>
+        <ion-title>Register Dish</ion-title>
+    </ion-navbar>
+</ion-header>
+
+
+<ion-content padding>
+    <ion-item color="light" no-lines>+ Add Dishes</ion-item>
+    <div padding-vertical>
+        <form [formGroup]="registerdish" class="list-form">
+            <ion-item>
+                <ion-label color="danger1" stacked>Add menu to the restaurant:</ion-label>
+                <ion-select [(ngModel)]="dish.id" placeholder="เพิ่มเมนูไปยังร้าน..." formControlName="dishid">
+                    <div *ngFor="let item of items | async">
+                        <ion-option value="{{item?.key}}">{{item.title}}</ion-option>
+                    </div>
+                </ion-select>
+            </ion-item>
+            <p ion-text color="danger" class="text-1x has-error" *ngIf="registerdish.get('dishid').touched && registerdish.get('dishid').hasError('required')">
+                This field is required
+            </p>
+
+
+            <ion-item>
+                <ion-label color="danger1" stacked>Dish Name:</ion-label>
+                <ion-input [(ngModel)]="dish.title" type="text" placeholder="ชื่อเมนูอาหาร..." formControlName="dishname"></ion-input>
+            </ion-item>
+            <p ion-text color="danger" class="text-1x has-error" *ngIf="registerdish.get('dishname').touched && registerdish.get('dishname').hasError('required')">
+                This field is required
+            </p>
+
+
+            <ion-item>
+                <ion-label color="danger1" stacked>Dish Type:</ion-label>
+                <ion-select [(ngModel)]="dish.type" placeholder="ประเภทเมนูอาหาร..." formControlName="dishtype">
+                    <ion-option value="Pasta">Pasta</ion-option>
+                    <ion-option value="Pizza">Pizza</ion-option>
+                    <ion-option value="Fast Food">Fast Food</ion-option>
+                    <ion-option value="Street Food">Street Food</ion-option>
+                    <ion-option value="Barbecue">Barbecue</ion-option>
+                    <ion-option value="Veggie">Veggie</ion-option>
+                </ion-select>
+            </ion-item>
+            <p ion-text color="danger" class="text-1x has-error" *ngIf="registerdish.get('dishtype').touched && registerdish.get('dishtype').hasError('required')">
+                This field is required
+            </p>
+
+            <ion-item>
+                <ion-label color="danger1" stacked>Dish Ingredients:</ion-label>
+                <ion-textarea [(ngModel)]="dish.ingredients" rows="5" placeholder="ส่วนประสมของหาอาร..."
+                    formControlName="dishingredients"></ion-textarea>
+            </ion-item>
+            <p ion-text color="danger" class="text-1x has-error" *ngIf="registerdish.get('dishingredients').touched && registerdish.get('dishingredients').hasError('required')">
+                This field is required
+            </p>
+
+
+            <ion-item>
+                <ion-label color="danger1" stacked>Dish Price:</ion-label>
+                <ion-input [(ngModel)]="dish.price" type="number" placeholder="ราคา..." formControlName="dishprice"></ion-input>
+            </ion-item>
+            <p ion-text color="danger" class="text-1x has-error" *ngIf="registerdish.get('dishprice').touched && registerdish.get('dishprice').hasError('required')">
+                This field is required
+            </p>
+        </form>
+
+        <div padding-vertical>
+            <h5 ion-text color="danger1" margin-bottom class="fw500">Add Images of Dish <span ion-text class="fw300">
+                    (Max.5)</span>
+            </h5>
+            <button ion-button icon-only color="light">
+                <ion-icon name="image" color="dark1"></ion-icon>
+            </button>
+            <button ion-button icon-only color="light">
+                <ion-icon name="image" color="dark1"></ion-icon>
+            </button>
+            <button ion-button icon-only color="light">
+                <ion-icon name="image" color="dark1"></ion-icon>
+            </button>
+            <button ion-button icon-only color="light">
+                <ion-icon name="image" color="dark1"></ion-icon>
+            </button>
+            <button ion-button icon-only color="light">
+                <ion-icon name="image" color="dark1"></ion-icon>
+            </button>
+        </div>
+
+        <!-- <button ion-button block color="danger1" (click)="registerDish(dish)" [disabled]="!registerdish.valid">
+      <ion-icon name="cloud-upload"></ion-icon>
+      &nbsp;
+      + Dishes
+    </button> -->
+
+        <div text-center>
+            <button center ion-button full round color="secon" (click)="registerDish(dish)" [disabled]="!registerdish.valid">
+                <ion-icon name="ios-cloud-upload-outline"></ion-icon>
+                &nbsp; Dishes
+            </button>
+        </div>
+        <br>
+    </div>
+
+</ion-content>

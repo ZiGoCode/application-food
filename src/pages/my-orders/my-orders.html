@@ -1,0 +1,64 @@
+<ion-header>
+
+    <ion-navbar hideBackButton color="danger2">
+        <ion-buttons *ngIf="itenbuttom == 1" start (click)="onTabpage()">
+            <button ion-button icon-start>
+                <ion-icon name="md-home"></ion-icon>
+            </button>
+        </ion-buttons>
+        <ion-buttons *ngIf="itenbuttom == 0" ion-button icon-only icon-start navPop>
+            <button ion-button icon-start>
+                <ion-icon name="ios-arrow-back"></ion-icon>
+            </button>
+        </ion-buttons>
+        <ion-title>My Orders</ion-title>
+    </ion-navbar>
+
+</ion-header>
+
+
+<ion-content class="bg">
+    <ion-item no-lines>
+        <span ion-text color="danger2" class="fontRSU">ติดตามสถาณะ</span>
+    </ion-item>
+    <!-- <button ion-button navPush="StatusPage">
+        pppp
+    </button> -->
+
+    <div *ngFor="let item of itemsBuy | async" class="div-content" (click)="statusPage(item)">
+        <ion-row>
+            <ion-col col-1>
+                <!-- <ion-icon name="ios-notifications"></ion-icon> -->
+                <ion-icon color="{{item.ioconcolor}}" name="ios-notifications"></ion-icon>
+            </ion-col>
+
+            <ion-col col-11 class="text-a">
+                <span>
+                    ราคา :
+                    <span ion-text color="dark2">{{item.baht}}</span>
+                </span>
+                <br>
+                <span>
+                    รหัสโต๊ะ :
+                    <span ion-text color="secon">{{item.keyteble}}</span>
+                </span>
+                <br>
+                <span>
+                    สถาณะ :
+                    <span ion-text color="{{item.ioconcolor}}">{{item.status}}</span>
+                </span>
+                <br>
+                <span>
+                    เวลาสั่งซื้อ : <span ion-text color="dark2">{{item.date}}</span>
+                </span>
+            </ion-col>
+        </ion-row>
+    </div>
+
+    <div class="div-notdata" text-center *ngIf="bass == 0">
+        <ion-icon class="icon-notdata" name="ios-help-circle"></ion-icon>
+        <br>
+        <samp ion-text color="dark3">No Information</samp>
+    </div>
+
+</ion-content>

@@ -1,0 +1,86 @@
+<ion-header no-border>
+    <ion-navbar hideBackButton transparent class="navbar-bg">
+        <ion-buttons start navPop>
+            <button ion-button icon-start color="danger2">
+                <ion-icon name="md-arrow-back"></ion-icon>
+            </button>
+        </ion-buttons>
+        <ion-title>
+            <span ion-text color="danger2">{{ restaurant.title }}</span>
+        </ion-title>
+        <ion-buttons end class="buts-maging" (click)="onSave(restaurant)">
+            <button ion-button color="danger2">
+                <ion-icon class="icon-book" name="ios-bookmark"></ion-icon>
+            </button>
+        </ion-buttons>
+    </ion-navbar>
+</ion-header>
+
+<ion-content class="content-bg">
+    <div>
+        <ion-slides pager="true" autoplay="3000" loop class="slider-pager">
+            <ion-slide *ngFor="let item of images">
+                <img src="{{ item.image }}" alt="" />
+            </ion-slide>
+        </ion-slides>
+    </div>
+
+    <div text-center class="div-content-bg">
+        <br>
+        <span class="thick" ion-text color="danger4">{{ restaurant.title }}</span>
+        <p ion-text color="danger3" class="text-ag2 p-pad">{{ restaurant.type }}</p>
+        <div class="text-ag3">
+            <p ion-text color="dark3" ion-text class="fontRSU">
+                {{ restaurant.address }} ถ.{{ restaurant.road }} ต.{{ restaurant.sub }} อ.{{ restaurant.district }}
+                จ.{{ restaurant.province }} {{ restaurant.postalcode }}
+            </p>
+        </div>
+    </div>
+    <!-- <ion-item-divider no-marging no-lines text-center>
+    <span ion-text color="danger2" class="fontRSU">MANU</span>
+  </ion-item-divider> -->
+
+    <div text-center class="div-menu">
+        <ion-title>
+            <span ion-text color="danger2">MENU</span>
+        </ion-title>
+    </div>
+
+    <div class="divcol-bg">
+        <ion-row class="div-pad">
+            <ion-col no-border col-6 class="col-bg" *ngFor="let item of dishMenu | async" (click)="onDish(item)">
+                <div class="divcol-bg">
+                    <img class="img" src="../../assets/imgs/dishes/dish01m.jpg" />
+                    <div class="card-size">
+                        <div class="text-over fontRSU">
+                            {{item.title}}
+                        </div>
+                        <div class="text-type fontRSU">
+                            {{item.ingredients}}
+                        </div>
+                        <div>
+                            <ion-row class="row-bhat">
+                                <ion-col class="text-bhat">
+                                    ฿{{item.price}}
+                                </ion-col>
+                                <ion-col class="text-icon">
+                                    <div class="icon-col">
+                                        <ion-icon name="custom-cart"></ion-icon>
+                                    </div>
+                                </ion-col>
+                            </ion-row>
+                        </div>
+                    </div>
+                </div>
+            </ion-col>
+
+        </ion-row>
+    </div>
+    <div class="div-footter">
+
+    </div>
+    <br>
+    <div text-center class="text-c">
+        © FOODAPP 2018
+    </div>
+</ion-content>

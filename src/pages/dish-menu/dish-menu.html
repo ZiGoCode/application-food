@@ -1,0 +1,92 @@
+<ion-header no-border>
+    <ion-navbar hideBackButton transparent class="navbar-bg">
+        <ion-buttons start navPop>
+            <button ion-button icon-start color="danger2">
+                <ion-icon name="md-arrow-back"></ion-icon>
+            </button>
+        </ion-buttons>
+        <ion-title>
+            <span ion-text color="danger2">DishMenu</span>
+        </ion-title>
+        <ion-buttons end class="buts-maging">
+            <button ion-button color="danger2" (click)="onCart()">
+                <ion-icon name="custom-cart"></ion-icon>
+            </button>
+        </ion-buttons>
+    </ion-navbar>
+</ion-header>
+
+
+<ion-content>
+    <div>
+        <ion-slides pager="true" class="slider-pager">
+            <ion-slide>
+                <img src="../../assets//imgs/dishes/dish01.jpg" alt="" />
+            </ion-slide>
+        </ion-slides>
+    </div>
+
+    <div class="div-content-bg">
+        <br>
+        <span class="thick fontRSU" ion-text color="danger4">{{ dishMenu.title }} </span>
+        <p ion-text color="danger3" class="text-ag2 p-pad">{{ dishMenu.type }}</p>
+        <p ion-text color="danger2" class="text-ag2"><span class="fontRSU">ราคา : </span>{{ dishMenu.price }}<span
+                class="fontRSU"> บาท</span></p>
+
+    </div>
+    <ion-row class="row-pad fontRSU">
+        <ion-col col-12>
+            <div ion-row class="div-size1">
+                ส่วนผสม :
+            </div>
+            <div ion-row class="div-size2">
+                {{dishMenu.ingredients}}
+            </div>
+        </ion-col>
+    </ion-row>
+</ion-content>
+
+<ion-footer no-border>
+    <div class="col-cout">
+        <span ion-text color="dark2" class="fontRSU">ราคา : </span>
+        <span ion-text color="danger2">{{ cout }}</span>
+        <samp ion-text color="dark2" class="fontRSU"> บาท</samp>
+    </div>
+    <ion-toolbar color="light2" class="footer-size">
+        <ion-row class="row-footer">
+
+            <ion-col no-padding no-margin col-2 class="col-bg1" (click)="onRemove()">
+                <div class="div-1">
+                    <ion-icon name="ios-remove-circle"></ion-icon>
+                </div>
+            </ion-col>
+
+            <ion-col no-padding no-margin col-2 class="col-number">
+                <div class="div-number">
+                    {{ buy }}
+                </div>
+            </ion-col>
+
+            <ion-col no-padding no-margin col-2 class="col-bg2" (click)="onAdd()">
+                <div class="div-1">
+                    <ion-icon name="ios-add-circle"></ion-icon>
+                </div>
+            </ion-col>
+
+            <ion-col col-3 class="col-footer2" (click)="presentMenu(dishMenu)">
+                <div class="div-footer2">
+                    <ion-icon name="custom-addcart"></ion-icon>
+                    <br><span class="text-size">Add Cart</span>
+                </div>
+            </ion-col>
+
+            <ion-col col-3 class="col-footer3" (click)="onBuy(dishMenu)">
+                <div class="div-footer3">
+                    <ion-icon name="custom-cart"></ion-icon>
+                    <br><span class="text-size">Buy Now</span>
+                </div>
+            </ion-col>
+
+        </ion-row>
+    </ion-toolbar>
+</ion-footer>

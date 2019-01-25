@@ -1,0 +1,72 @@
+page-login {
+    ion-input { 
+        border-bottom: #fff solid 1px;
+    }  
+    ion-datetime {
+        border-bottom: #fff solid 1px;
+    } 
+    ion-input{
+        color: #fff !important;
+        caret-color: #fff;
+    }
+    ion-label{
+        color: #fff !important;
+    }
+    ion-datetime{
+        color: #fff !important;
+    }
+    .margin-img{
+        margin-top: 20px !important;
+    }
+    .card-padding{
+        margin-top: 0 !important;
+        width: 100% !important;
+        margin-left: 0 !important;
+        margin-right: 0 !important;
+        padding-left: 25px !important;
+        padding-right: 25px !important;
+    }
+    .padding-top{
+        padding-top: 5px;
+    }
+    .dark2{
+        color: #fff;
+    }
+}
+
+.bg-style{
+    margin: 0px !important;
+    // background-image: url("../../assets/imgs/Moon.png");
+    // background-image: url("../../assets//imgs/background-image.png");
+    // background-repeat: no-repeat; 
+    // background-size: cover;  
+    // background-position: center;  
+    // background-color: #FF6C00; 
+    background-color: #ff6600;  
+} 
+.card-background-page {
+    // background: rgba(255, 255, 255, 0.6);
+    box-shadow: none;
+    background-color: #ff6600;
+    border-radius: 10px;
+    z-index: 100;
+}
+.card-title {
+    background-color: #ff6600;
+} 
+.subtitle { 
+    width: 250px;
+}
+.bgfc{
+    height: 20px;
+}
+.text-1x{
+    text-align: left;
+    font-size: 2rem !important;
+}
+.has-error {
+    margin: 0;
+    padding: .75rem;
+    background-color: color($colors, light);
+    border-radius: 0 0 4px 4px;
+}

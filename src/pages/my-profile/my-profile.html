@@ -1,0 +1,80 @@
+<ion-header>
+    <ion-navbar color="danger2">
+        <ion-title>Me</ion-title>
+    </ion-navbar>
+</ion-header>
+
+<ion-content>
+    <br>
+    <div class="list">
+        <ion-item class="item-center" no-lines>
+            <ion-avatar center>
+                <img src="../../assets/imgs/default-user-image.png">
+            </ion-avatar>
+            <p>This is an image</p>
+            <div class="username">
+                <h1><b>{{ (profileData | async)?.username }}</b></h1>
+            </div>
+        </ion-item>
+    </div>
+
+
+    <ion-item no-margin navPush="NotificationsPage" class="item-zex">
+        <ion-icon name="ios-notifications" class="icon-20x"></ion-icon>
+        <span class="text-left">Notifications</span>
+    </ion-item>
+
+    <ion-item no-margin navPush="MessagesPage" class="item-zex" no-lines>
+        <ion-icon name="ios-chatbubbles" class="icon-20x"></ion-icon>
+        <span class="text-left">Messages</span>
+    </ion-item>
+
+    <div class="item-size"></div>
+
+    <ion-item no-margin class="item-zex" (click)="onCart()">
+        <ion-icon name="md-cart" class="icon-20x"></ion-icon>
+        <div *ngIf="qty" class="div-badge">{{qty}}</div>
+        <span class="text-left">Cart</span>
+    </ion-item>
+
+    <ion-item no-margin (click)="savedPage()" class="item-zex">
+        <ion-icon name="ios-bookmark" class="icon-20x"></ion-icon>
+        <span class="text-left">Seved</span>
+    </ion-item>
+
+    <ion-item no-margin navPush="LikeRestaurantPage" class="item-zex">
+        <ion-icon name="md-thumbs-up" class="icon-20x"></ion-icon>
+        <span class="text-left">Like Restaurant</span>
+    </ion-item>
+
+    <ion-item no-margin class="item-zex" no-lines (click)="onMyroder()">
+        <ion-icon name="md-list-box" class="icon-20x"></ion-icon>
+        <span class="text-left">My Orders</span>
+    </ion-item>
+
+    <ion-item no-margin (click)="open()" class="item-zex" color="light" no-lines>
+        <ion-icon name="custom-open" class="icon-23x" color="secon"></ion-icon>
+        <span ion-text color="secon" class="text-left">Open Restaurant</span>
+    </ion-item>
+
+    <div class="item-size"></div>
+
+    <ion-item no-margin navPush="EditProfilePage" class="item-zex">
+        <ion-icon name="ios-cog" class="icon-20x"></ion-icon>
+        <span class="text-left">Edit Profile</span>
+    </ion-item>
+
+    <ion-item no-margin navPush="HelpPage" class="item-zex" no-lines>
+        <ion-icon name="ios-help-circle" class="icon-20x"></ion-icon>
+        <span class="text-left">Help</span>
+    </ion-item>
+
+    <ion-item no-margin color="light" no-lines (click)="logout()" class="item-zex">
+        <ion-icon name="ios-log-out" class="icon-23x" color="red"></ion-icon>
+        <span class="text-left-color">Login</span>
+    </ion-item>
+
+    <br>
+    <br>
+
+</ion-content>

@@ -1,0 +1,43 @@
+page-status {
+    .bg{
+        background-color: #f3f3f3;
+    }
+
+    .div-content{
+        margin-top: 3px;
+        padding: 10px;
+        background-color: #fff;
+        height: 65px !important;
+    }
+    .text-a{
+        text-align: left;
+        color: #222;
+        padding-left: 8px;
+    }
+    .font-14{
+        font-size: 14px !important;
+    }
+    .font-12{
+        font-size: 12px;
+    }
+
+    .div-line{
+        position: absolute !important;
+        padding-top: 0px !important;
+        margin-top: -3px !important;
+        margin-left: 9px !important;
+        height: 26px !important;
+        width: 1px !important;
+    }
+    
+    .div-line1{
+        position: absolute !important;
+        padding-top: 0px !important;
+        margin-top: -24px !important;
+        margin-left: 9px !important;
+        height: 25px !important;
+        width: 1px !important;
+    }
+    
+
+}

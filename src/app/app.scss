@@ -1,0 +1,129 @@
+
+.tabbar a[aria-selected=true] {
+    border-top: 1px;
+    border-style: solid;   
+    color: #FF6C00 !important;
+}
+.tab-button[aria-selected=true] .tab-button-icon {
+    color: #FF6C00 !important;
+}
+
+.tabs-bg a[aria-selected=true]{
+    border-top: 1px;
+    border-style: solid;   
+    color: #00635a !important;
+}
+.tabs-bg .tab-button[aria-selected=true] .tab-button-icon {
+    color: #00635a !important;
+}
+
+ion-navbar{ 
+    //  text-align: center;
+    // background-color: #ff4500;
+    // color: #ff4500;
+    .title.title-md {
+        position: absolute;
+        left: 50%;
+        top: 0;
+        transform: translateX(-50%);
+        height: 100%;
+        width: 70%;
+        text-align: center;
+    }
+}
+ion-header{
+    .back-button-md,
+    .back-button-ios {
+        color: #ffffff;
+    }
+}
+.toolbar-background {
+    background-color: #f4f4f4;
+  }
+
+@font-face {
+    font-family: 'RSU_Regular';
+    src: url('../assets/fonts/RSU_Regular.ttf') 
+}
+.fontRSU{
+    font-family: RSU_Regular;
+}
+
+ion-icon {
+    &[class*="custom-"] {
+      mask-size: contain;
+      mask-position: 50% 50%;
+      mask-repeat: no-repeat;
+      background: currentColor;
+      width: 1em;
+      height: 1em;
+    }
+  
+    &[class*="custom-mobile"] {
+      mask-image: url(../assets/imgs/new-product-sticker.svg);
+    }
+    &[class*="custom-food"] {
+        mask-image: url(../assets/imgs/foodicon.png);
+    }
+    &[class*="custom-cart"] {
+        mask-image: url(../assets/icon/online-shopping-cart.svg);
+    }
+    &[class*="custom-settings"] {
+        mask-image: url(../assets/icon/settings.svg);
+    }
+    &[class*="custom-shop"] {
+        mask-image: url(../assets/icon/icon.svg);
+    }
+    &[class*="custom-open"] {
+        mask-image: url(../assets/icon/open.svg);
+    }
+    &[class*="custom-shop"] {
+        mask-image: url(../assets/icon/shop.svg);
+    }
+    &[class*="custom-addcart"] {
+        mask-image: url(../assets/icon/shopping-cart-add-button.svg);
+    }
+    &[class*="custom-table"] {
+        mask-image: url(../assets/icon/table.svg);
+    }
+    &[class*="custom-chef"] {
+        mask-image: url(../assets/icon/chef.svg);
+    }
+    &[class*="custom-tray"] {
+        mask-image: url(../assets/icon/tray.svg);
+    }
+    &[class*="custom-doc"] {
+        mask-image: url(../assets/icon/doc.svg);
+    }
+    &[class*="custom-group"] {
+        mask-image: url(../assets/icon/group.svg);
+    }
+    
+}
+.text-c{
+    height: 30px;
+    font-size: 12px;
+    color: #757575;
+}
+ion-searchbar{
+    caret-color: #fff;
+}
+.buts-maging{
+    margin-right: 7px !important;
+}
+.text-a{
+    font-size: 12px !important;
+}
+.slider-pager {
+    .swiper-pagination-bullet {
+      background: #fff;
+      // margin: 0 3px;
+    }
+}
+.icon-notdata{
+    color: #bebebe;
+    font-size: 100px;
+}
+.div-notdata{
+    margin-top: 50% !important;
+}

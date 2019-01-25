@@ -1,0 +1,7 @@
+{
+  "name": "foodapp",
+  "integrations": {
+    "cordova": {}
+  },
+  "type": "ionic-angular"
+}

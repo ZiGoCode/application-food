@@ -1,0 +1,106 @@
+page-open {
+    .content-bg{
+        background-color: #dd4b39;
+    }
+    .div-header{
+        height: 230px;
+        background-color: #dd4b39;
+    }
+    .div-img1{
+        padding-top: 40px;
+        text-align: center;
+    }
+    .div-img2{
+        padding-top: 0px;
+        text-align: center;
+    }
+    ion-row{
+        padding: 0 !important;
+        margin: 0 !important;
+        background-color: #dfdfdf;
+        .size-0{
+            padding: 0 !important;
+            margin: 0 !important;
+            background-color: #fff;
+            height: 115px; 
+        }
+        .size-1{
+            text-align: left !important;
+            padding: 0 !important;
+            margin: 0 !important;
+            background-color: #fff;
+            height: 90px !important; 
+        }
+        .div-bg{
+            padding: 0;
+            padding-top: 12px !important;
+            margin: 1pt !important;
+            height: 100%;
+            width: 100%;
+            border-bottom: #fff solid 1pt;
+            background-color: #00635a;
+        }
+        .div-bg1{
+            text-align: left !important;
+            padding: 0;
+            margin: 1pt !important;
+            height: 90px;
+            width: 100%;
+            background-color: #dd4b39;
+        }
+        .div-bg2{
+            position: absolute;
+            padding: 0px;
+            padding-top: 23px;
+            padding-left: 20px;
+        }
+        .div-bg3{
+            position: absolute;
+            padding: 0px;
+            padding-top: 35px !important;
+            padding-left: 70px;
+        }
+        .div1{
+            margin-left: 1pt;
+            margin-right: 1pt;
+            height: 90px;
+            width: 100%;
+            background-color: #3b5998;
+            border-bottom: #fff solid 1pt;
+
+        }
+        .div2{
+            margin-left: 1pt;
+            margin-right: 1pt;
+            height: 90px;
+            width: 100%;
+            background-color: #512E5F;
+            border-bottom: #fff solid 1pt;
+
+        }
+        ion-icon{
+            color: #fff;
+            font-size: 50px;
+        }
+        .text-size{
+            color: #fff;
+        }
+        .text-size1{
+            font-size: 18px;
+            padding-top: 0%;
+            padding-left: 10px;
+            color: #fff !important;
+        }
+        .texd-paddig{
+            padding-top: 10px !important;
+        }
+        .texd-paddig1{
+            padding-top: 5px !important;
+        }
+        .icon-size{
+            font-size: 40px !important;
+        }
+    }
+
+}
+

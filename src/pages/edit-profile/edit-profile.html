@@ -1,0 +1,57 @@
+<ion-header>
+
+  <ion-navbar hideBackButton color="danger2">
+    <ion-buttons ion-button icon-only icon-start navPop>
+      <button ion-button icon-start>
+        <ion-icon name="ios-arrow-back"></ion-icon>
+      </button>
+    </ion-buttons>
+    <ion-title>editProfile</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content>
+  <img class="ionimg" src="{{image}}" alt="">
+
+  <!-- <ion-img class="ionimg" src="{{image}}"></ion-img> -->
+  <ion-item>
+    <ion-label></ion-label>
+    <ion-input type="file" (change)="uploadFile($event)"></ion-input>
+
+  </ion-item>
+  <div>{{ uploadPercent | async }}</div>
+  <a [href]="downloadURL | async">{{ downloadURL | async }}</a>
+  <button ion-button (click)="prin(downloadURL)">prin</button>
+
+
+  <ion-card *ngFor="let file of files | async">
+
+    <ion-card-header>
+      {{file.created}}
+    </ion-card-header>
+
+    <ion-card-content>
+
+      <button ion-button block icon-left outline (click)="viewFile(file.url)">
+        <ion-icon name="eye"></ion-icon>
+        {{file.fullPath}}
+      </button>
+
+      <button ion-button block icon-left outline color="danger1" (click)="deleteFile(file)">
+        <ion-icon name="trash"></ion-icon>
+      </button>
+
+    </ion-card-content>
+
+  </ion-card>
+
+
+  <ion-fab right bottom>
+    <button ion-fab (click)="addFile()">
+      <ion-icon name="cloud-upload"></ion-icon>
+    </button>
+  </ion-fab>
+
+</ion-content>

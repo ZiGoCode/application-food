@@ -1,0 +1,54 @@
+<ion-header>
+
+    <ion-navbar color="secon">
+        <ion-title>Orders</ion-title>
+    </ion-navbar>
+
+</ion-header>
+
+
+<ion-content class="bg">
+    <div *ngIf="qty != 0" class="not">
+        มีรายการอยู่ {{qty}} รายการที่ยังรอนำเดินการ
+    </div>
+
+    <div *ngFor="let item of itemsBuy | async" class="div-content" (click)="status(item)">
+        <ion-row>
+            <ion-col col-1>
+                <!-- <ion-icon name="ios-notifications"></ion-icon> -->
+                <ion-icon color="{{item.ioconcolor}}" name="ios-notifications"></ion-icon>
+                
+            </ion-col>
+
+            <ion-col col-11 class="text-a">
+                <span>
+                    รหัสการสั้งชื้อ :
+                    <span ion-text color="dark2">{{item.number}}</span>
+                </span>
+                <br>
+                <span>
+                    รหัสโต๊ะ :
+                    <span ion-text color="secon">{{item.keyteble}}</span>
+                </span>
+                <br>
+                <span>
+                    สถาณะ :
+                    <span ion-text color="{{item.ioconcolor}}">{{item.status}}</span>
+                </span>
+                <br>
+                <span>
+                    เวลา : <span ion-text color="dark2">{{item.date}}</span>
+                </span>
+            </ion-col>
+        </ion-row>
+
+
+    </div>
+
+    <div class="div-notdata" text-center *ngIf="bass == 0">
+        <ion-icon class="icon-notdata" name="ios-help-circle"></ion-icon>
+        <br>
+        <samp ion-text color="dark3">No Information</samp>
+    </div>
+
+</ion-content>
