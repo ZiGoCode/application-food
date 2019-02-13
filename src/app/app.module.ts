@@ -17,8 +17,6 @@ import { Push } from '@ionic-native/push';
 import { DataProvider } from '../providers/data/data';
 
 
-
-
 @NgModule({
     declarations: [
         MyApp

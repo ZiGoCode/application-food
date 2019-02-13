@@ -19,8 +19,10 @@ import { Observable } from 'rxjs';
 export class MyProfilePage {
 
     profileData: Observable<any>;
+    profileimg: Observable<any>;
     qty: any;
-    
+    imgava: any;
+
 
     constructor(private angularFireAuth: AngularFireAuth,
         private angularFireDatabase: AngularFireDatabase,
@@ -28,12 +30,18 @@ export class MyProfilePage {
         public navParams: NavParams,
         public appCtrl: App,
         public alertCtrl: AlertController) {
-
+            
+        this.imgava = '';
         this.angularFireAuth.authState.subscribe(data => {
             this.profileData = this.angularFireDatabase.object(`user/${data.uid}`).valueChanges();
+            this.profileData.subscribe(data => {
+                this.imgava = data.img
+                console.log('ionViewDidLoad MyProfilePage', this.imgava);
+
+            });
         });
         this.getBaht();
-        
+
 
     }
 
@@ -75,7 +83,7 @@ export class MyProfilePage {
     }
 
     open() {
-        this.appCtrl.getRootNav().push('TabsRtrPage', {idteb: 1}, { animate: true, direction: 'back' });
+        this.appCtrl.getRootNav().push('TabsRtrPage', { idteb: 1 }, { animate: true, direction: 'back' });
     }
 
     onCart() {
@@ -84,8 +92,8 @@ export class MyProfilePage {
     onMyroder() {
         this.appCtrl.getRootNav().push('MyOrdersPage', {}, { animate: true, direction: 'forward' });
     }
-    savedPage(){
-        this.navCtrl.push('SavedPage', {item: 1})
+    savedPage() {
+        this.navCtrl.push('SavedPage', { item: 1 })
     }
 
 }

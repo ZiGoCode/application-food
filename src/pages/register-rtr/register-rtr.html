@@ -102,22 +102,79 @@
         <div padding-vertical>
             <h5 ion-text color="secon" margin-bottom class="fw500">Add Images of Restaurant <span ion-text class="fw300">
                     (Max.5)</span></h5>
-            <button ion-button icon-only color="light">
-                <ion-icon name="image" color="dark"></ion-icon>
-            </button>
-            <button ion-button icon-only color="light">
-                <ion-icon name="image" color="dark"></ion-icon>
-            </button>
-            <button ion-button icon-only color="light">
-                <ion-icon name="image" color="dark"></ion-icon>
-            </button>
-            <button ion-button icon-only color="light">
-                <ion-icon name="image" color="dark"></ion-icon>
-            </button>
-            <button ion-button icon-only color="light">
-                <ion-icon name="image" color="dark"></ion-icon>
-            </button>
         </div>
+
+        <ion-grid>
+            <ion-row>
+                <ion-col col-12>
+                    <ion-item text-center no-lines>
+                        <input type="file" name="file" id="file" (change)="uploadFile($event)" class="inputfile" />
+                        <label for="file">
+                            <ion-icon name="ios-image"></ion-icon>
+                        </label>
+                        &nbsp;
+                        <ion-icon class="icon-file" color="danger1" *ngIf="!downloadURL" name="ios-close"></ion-icon>
+                        <ion-icon class="icon-file" color="secon" *ngIf="downloadURL" name="ios-checkmark"></ion-icon>
+                    </ion-item>
+                </ion-col>
+            </ion-row>
+        </ion-grid>
+
+        <!-- <ion-grid no-padding>
+            <ion-row no-padding no-margin>
+                <ion-col col-3 class="col-file">
+                    <ion-item text-center no-lines class="item-file">
+                        <input type="file" name="file" id="file" (change)="uploadFile($event)" class="inputfile" />
+                        <label for="file">
+                            <ion-icon name="ios-image"></ion-icon>
+                        </label>
+                    </ion-item>
+                </ion-col>
+                <ion-col col-3 class="col-file">
+                    <ion-item text-center no-lines class="item-file">
+                        <input type="file" name="file" id="file" (change)="uploadFile($event)" class="inputfile" />
+                        <label for="file">
+                            <ion-icon name="ios-image"></ion-icon>
+                        </label>
+                    </ion-item>
+                </ion-col>
+                <ion-col col-3 class="col-file">
+                    <ion-item text-center no-lines class="item-file">
+                        <input type="file" name="file" id="file" (change)="uploadFile($event)" class="inputfile" />
+                        <label for="file">
+                            <ion-icon name="ios-image"></ion-icon>
+                        </label>
+                    </ion-item>
+                </ion-col>
+                <ion-col col-3 class="col-file">
+                    <ion-item text-center no-lines class="item-file">
+                        <input type="file" name="file" id="file" (change)="uploadFile($event)" class="inputfile" />
+                        <label for="file">
+                            <ion-icon name="ios-image"></ion-icon>
+                        </label>
+                    </ion-item>
+                </ion-col>
+            </ion-row>
+        </ion-grid> -->
+
+
+        <!-- <button ion-button icon-only color="light">
+            <ion-icon name="image" color="dark"></ion-icon>
+        </button>
+        <br>
+        <button ion-button icon-only color="light">
+            <ion-icon name="image" color="dark"></ion-icon>
+        </button>
+        <button ion-button icon-only color="light">
+            <ion-icon name="image" color="dark"></ion-icon>
+        </button>
+        <button ion-button icon-only color="light">
+            <ion-icon name="image" color="dark"></ion-icon>
+        </button>
+        <button ion-button icon-only color="light">
+            <ion-icon name="image" color="dark"></ion-icon>
+        </button> -->
+
 
         <!-- <button ion-button block color="secon" (click)="addRestaurant(restaurant)" [disabled]="!onYourRestaurantForm.valid">
       <ion-icon name="cloud-upload"></ion-icon>
@@ -126,7 +183,7 @@
     </button> -->
 
         <div text-center>
-            <button center ion-button full round color="secon" (click)="addRestaurant(restaurant)" [disabled]="!onYourRestaurantForm.valid">
+            <button center ion-button full round color="secon" (click)="addRestaurant(restaurant, downloadURL)" [disabled]="!onYourRestaurantForm.valid">
                 <ion-icon name="ios-cloud-upload-outline"></ion-icon>
                 &nbsp; Restaurant
             </button>

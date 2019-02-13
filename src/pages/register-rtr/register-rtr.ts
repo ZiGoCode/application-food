@@ -6,6 +6,8 @@ import { AngularFireAuth } from 'angularfire2/auth';
 import { AngularFireDatabase } from 'angularfire2/database';
 import { Restaurant } from '../../firebase/restaurant';
 import { Observable } from 'rxjs';
+import { AngularFireStorage } from 'angularfire2/storage';
+import { finalize } from 'rxjs/operators';
 
 
 @IonicPage()
@@ -20,10 +22,13 @@ export class RegisterRtrPage {
     restaurant = {} as Restaurant;
     restaurantData: Observable<any>;
     items: Observable<any[]>;
-
+    uid: any;
     itemsID: Observable<any>;
-
-
+    uploadPercent: Observable<number>;
+    downloadURL: Observable<string>;
+    public imagePath;
+    imgURL = '';
+    image: any;
 
     constructor(private angularFireAuth: AngularFireAuth,
         private angularFireDatabase: AngularFireDatabase,
@@ -32,7 +37,8 @@ export class RegisterRtrPage {
         public navParams: NavParams,
         private _fb: FormBuilder,
         public actionsheetCtrl: ActionSheetController,
-        public appCtrl: App) {
+        public appCtrl: App,
+        private angularFireStorage: AngularFireStorage) {
 
 
 
@@ -73,12 +79,19 @@ export class RegisterRtrPage {
         });
     }
 
-    addRestaurant(restaurant: Restaurant) {
+    addRestaurant(restaurant: Restaurant, URL) {
         const loader = this.loadingCtrl.create({
             content: "Please wait...",
             spinner: 'crescent',
         });
         loader.present();
+
+        URL.subscribe(data => {
+            const ad = data
+            this.image = String(data)
+            console.log('===', ad)
+            restaurant.img = this.image;
+        });
 
         this.angularFireAuth.authState.take(1).subscribe(data => {
             restaurant.id = data.uid;
@@ -143,6 +156,38 @@ export class RegisterRtrPage {
 
     onPop() {
         this.appCtrl.getRootNav().pop({ animate: true, direction: '' });
+    }
+
+    uploadFile(event) {
+        const loader = this.loadingCtrl.create({
+            content: "Please wait...",
+            spinner: 'crescent',
+        });
+        loader.present();
+
+        // var reader = new FileReader();
+        // this.imagePath = event;
+        // reader.readAsDataURL(event[0]);
+        // reader.onload = (_event) => {
+        //     this.imgURL = reader.result;
+        // }
+        this.angularFireAuth.authState.take(1).subscribe(data => {
+            this.uid = data.uid;
+            const file = event.target.files[0];
+            const filePath = `imagertr/${data.uid}/profile/${this.restaurant.title}`;
+            const fileRef = this.angularFireStorage.ref(filePath);
+            const task = this.angularFireStorage.upload(filePath, file);
+            this.uploadPercent = task.percentageChanges();
+
+            task.snapshotChanges().pipe(
+                finalize(() => {
+                    return this.downloadURL = fileRef.getDownloadURL()
+                }
+                )
+            ).subscribe();
+
+        });
+        loader.dismiss();
     }
 
 }

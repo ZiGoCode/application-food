@@ -23,7 +23,8 @@
             <ion-item-sliding class="polaro" no-lines>
                 <ion-item class="bts-w" (click)="editRest(item)">
                     <div item-start class="div-imgbuy">
-                        <img src="../../assets/imgs/icon.png">
+                        <img *ngIf="!item.img" src="../../assets/imgs/icon.png">
+                        <img *ngIf="item.img" src="{{item.img}}">
                     </div>
                     <div class="div-conten">
                         <h3 ion-text color="danger4" class="text-ag1">{{ item.title }}</h3>

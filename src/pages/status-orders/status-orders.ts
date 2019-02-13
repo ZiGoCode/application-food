@@ -29,6 +29,7 @@ export class StatusOrdersPage {
 
         this.keyid = this.navParams.get("key");
         this.bahtDish = this.navParams.get("item");
+        
         if (this.bahtDish.status == 'สำเร็จ') {
             this.isenabled = false;
         }

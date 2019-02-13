@@ -1,17 +1,16 @@
 <ion-header>
-  <ion-navbar color="danger2">
-    <!-- <ion-buttons left>
-      <button ion-button icon-only color="">
-        <ion-icon name="custom-food"></ion-icon>
-      </button>
-    </ion-buttons> -->
+  <!-- <div class="nah">
+
+  </div> -->
+
+  <!-- <ion-navbar color="danger2">
     <ion-searchbar></ion-searchbar>
     <ion-buttons end class="buts-maging">
       <button ion-button>
         <ion-icon name="custom-settings"></ion-icon>
       </button>
     </ion-buttons>
-  </ion-navbar>
+  </ion-navbar> -->
 </ion-header>
 
 <ion-content>
@@ -64,24 +63,7 @@
   </div>
 
 
-  <ion-item-divider no-marging no-lines>
-    <span ion-text color="danger2" class="fontRSU">ร้านอาหารแนะนำ</span>
-  </ion-item-divider>
 
-  <div class="div-padding">
-    <ion-scroll scrollX="true" class="scrool-bg">
-      <div *ngFor="let item of imageLove" class="inner">
-        <ion-card no-padding>
-          <img src="{{ item.image }}" />
-          <ion-card-content>
-            <div class="card-content" no-padding>
-              <span ion-text color="dark">{{ item.name }}</span>
-            </div>
-          </ion-card-content>
-        </ion-card>
-      </div>
-    </ion-scroll>
-  </div>
 
   <ion-item-divider no-marging no-lines>
     <span ion-text color="danger2" class="fontRSU">โปรโมชั่นโดนๆ</span>
@@ -101,6 +83,25 @@
       <img class="img-bg" src="../../assets/imgs/icon1.png" />
     </ion-col>
   </ion-row>
+
+  <ion-item-divider no-marging no-lines>
+    <span ion-text color="danger2" class="fontRSU">ร้านอาหารแนะนำ</span>
+  </ion-item-divider>
+
+  <div class="div-padding">
+    <ion-scroll scrollX="true" class="scrool-bg">
+      <div *ngFor="let item of imageLove" class="inner">
+        <ion-card no-padding>
+          <img src="{{ item.image }}" />
+          <ion-card-content>
+            <div class="card-content" no-padding>
+              <span ion-text color="dark">{{ item.name }}</span>
+            </div>
+          </ion-card-content>
+        </ion-card>
+      </div>
+    </ion-scroll>
+  </div>
 
   <ion-item-divider no-marging no-lines>
     <span ion-text color="danger2" class="fontRSU">เมนูแนะนำ</span>
@@ -177,7 +178,8 @@
   <div *ngFor="let item of items | async" no-maegin no-padding>
     <ion-row text-center text-wrap no-maegin no-padding class="polaroid1" (click)="dishPage(item)">
       <ion-col col-3>
-        <img class="img-bg" src="../../assets/imgs/icon.png" />
+        <img *ngIf="!item.img" src="../../assets/imgs/icon.png">
+        <img *ngIf="item.img" height="80px" src="{{item.img}}">
       </ion-col>
       <ion-col col-7 class="danger4">
         <h1 ion-text color="danger4" class="text-ag1">{{ item.title }}</h1>

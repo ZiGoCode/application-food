@@ -1,22 +1,24 @@
-<ion-header no-border>
-    <ion-navbar hideBackButton transparent class="navbar-bg">
-        <ion-buttons start navPop>
-            <button ion-button icon-start color="danger2">
+<ion-header>
+    <ion-navbar transparent hideBackButton class="navbar-bg">
+        <ion-buttons start navPop class="button-bg">
+            <button ion-button class="bt-color" icon-start>
                 <ion-icon name="md-arrow-back"></ion-icon>
             </button>
         </ion-buttons>
-        <ion-title>
-            <span ion-text color="danger2">{{ restaurant.title }}</span>
-        </ion-title>
-        <ion-buttons end class="buts-maging" (click)="onSave(restaurant)">
-            <button ion-button color="danger2">
+        <ion-buttons end class="button-bg-chat" (click)="chatPage(restaurant)">
+            <button ion-button class="bt-color">
+                <ion-icon name="md-chatboxes"></ion-icon>
+            </button>
+        </ion-buttons>
+        <ion-buttons end class="button-bg-book" (click)="onSave(restaurant)">
+            <button ion-button class="bt-color">
                 <ion-icon class="icon-book" name="ios-bookmark"></ion-icon>
             </button>
         </ion-buttons>
     </ion-navbar>
 </ion-header>
 
-<ion-content class="content-bg">
+<ion-content fullscreen="true" class="content-bg">
     <div>
         <ion-slides pager="true" autoplay="3000" loop class="slider-pager">
             <ion-slide *ngFor="let item of images">
@@ -61,7 +63,7 @@
                         <div>
                             <ion-row class="row-bhat">
                                 <ion-col class="text-bhat">
-                                    ฿{{item.price}}
+                                    ฿{{item.price | number}}
                                 </ion-col>
                                 <ion-col class="text-icon">
                                     <div class="icon-col">

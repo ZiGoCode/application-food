@@ -8,9 +8,8 @@
     <br>
     <div class="list">
         <ion-item class="item-center" no-lines>
-            <ion-avatar center>
-                <img src="../../assets/imgs/default-user-image.png">
-            </ion-avatar>
+            <img *ngIf="imgava" class="img-ava" [src]="imgava">
+            <img *ngIf="!imgava" class="img-ava" src="../../assets/imgs/default-user-image.png">
             <p>This is an image</p>
             <div class="username">
                 <h1><b>{{ (profileData | async)?.username }}</b></h1>

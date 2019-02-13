@@ -13,22 +13,38 @@
 
 
 <ion-content>
-  <img class="ionimg" src="{{image}}" alt="">
 
-  <!-- <ion-img class="ionimg" src="{{image}}"></ion-img> -->
-  <ion-item>
-    <ion-label></ion-label>
-    <ion-input type="file" (change)="uploadFile($event)"></ion-input>
-
+  <ion-item class="item-center" no-lines>
+    <img class="img-ava" src="{{ (profileData | async)?.img }}">
   </ion-item>
+
+
+  <ion-item text-center no-lines>
+    <input type="file" name="file" id="file" (change)="uploadFile($event)" class="inputfile" />
+    <label for="file">
+      <ion-icon name="ios-camera"></ion-icon>
+      Image
+    </label>
+  </ion-item>
+
+
   <div>{{ uploadPercent | async }}</div>
-  <a [href]="downloadURL | async">{{ downloadURL | async }}</a>
-  <button ion-button (click)="prin(downloadURL)">prin</button>
+  <!-- <a [href]="downloadURL | async">{{ downloadURL | async }}</a> -->
+
+  <div class="doc" *ngIf="downloadURL">
+    <button ion-button [disabled]="!isenabled" (click)="prin(downloadURL)" color="danger2">Upload</button>
+  </div>
+  <div class="doc" *ngIf="!downloadURL">
+    <button ion-button disabled (click)="prin(downloadURL)" color="danger2">Upload</button>
+  </div>
+
+  <!-- <button ion-button (click)="prin(downloadURL)" outline>Upload</button> -->
+
+  <!-- <ion-card *ngFor="let file of files | async"> -->
 
 
-  <ion-card *ngFor="let file of files | async">
 
-    <ion-card-header>
+  <!-- <ion-card-header>
       {{file.created}}
     </ion-card-header>
 
@@ -52,6 +68,6 @@
     <button ion-fab (click)="addFile()">
       <ion-icon name="cloud-upload"></ion-icon>
     </button>
-  </ion-fab>
+  </ion-fab> -->
 
 </ion-content>

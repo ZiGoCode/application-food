@@ -98,7 +98,6 @@ export class HomePage {
     ];
 
     items: Observable<any[]>;
-
     constructor(
         public navCtrl: NavController,
         public navParams: NavParams,
@@ -114,7 +113,9 @@ export class HomePage {
                     ...c.payload.val()
                 }));
             });
+
     }
+
 
     ionViewDidLoad() {
         console.log("ionViewDidLoad HomePage");

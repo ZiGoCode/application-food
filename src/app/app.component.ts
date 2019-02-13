@@ -20,21 +20,27 @@ export class MyApp {
         statusBar: StatusBar,
         splashScreen: SplashScreen,
         private screenOrientation: ScreenOrientation,
-        private push: Push) {
+        private push: Push
+    ) {
         platform.ready().then(() => {
-            // Okay, so the platform is ready and our plugins are available.
-            // Here you can do any higher level native things you might need.
-            statusBar.styleDefault();
-            splashScreen.hide();
-            this.pushSetup();
+            
+            statusBar.overlaysWebView(true);
+            statusBar.backgroundColorByHexString('#ffffff');
+            
+            // statusBar.styleDefault();
+            // splashScreen.hide();
+            // this.pushSetup();
         });
 
         this.chk_sess = localStorage.getItem('userData');
         if (this.chk_sess) {
             this.rootPage = 'TabsPage';
         } else {
-            this.rootPage = 'LoginPage';
+            // this.rootPage = 'LoginPage';
+            this.rootPage = 'SlidesPage';
         }
+
+
         // this.screenOrientation.lock('portrait');
     }
     pushSetup() {

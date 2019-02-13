@@ -1,5 +1,5 @@
 import { Component } from "@angular/core";
-import { IonicPage, NavController, NavParams, LoadingController, ToastController } from "ionic-angular";
+import { IonicPage, NavController, NavParams, LoadingController, ToastController, AlertController } from "ionic-angular";
 import { Restaurant } from "../../firebase/restaurant";
 import { AngularFireDatabase } from "angularfire2/database";
 import { Observable } from "rxjs";
@@ -29,7 +29,8 @@ export class DishPage {
         private angularFireDatabase: AngularFireDatabase,
         private angularFireAuth: AngularFireAuth,
         public loadingCtrl: LoadingController,
-        private toastCtrl: ToastController
+        private toastCtrl: ToastController,
+        public alertCtrl: AlertController
     ) {
 
         this.restaurant = this.navParams.get("item");
@@ -54,7 +55,7 @@ export class DishPage {
     onCart() {
         this.navCtrl.push('BuyPage')
     }
-    onSave(restaurant){
+    onSave(restaurant) {
         const loader = this.loadingCtrl.create({
             content: "Please wait...",
             spinner: 'crescent',
@@ -71,6 +72,29 @@ export class DishPage {
                 toast.present();
             });
         })
+    }
+    chatPage(restaurant) {
+        try {
+            this.angularFireAuth.authState.take(1).subscribe(data => {
+                this.angularFireDatabase.list(`chats/${data.uid}`).update(restaurant.key, restaurant);
+                this.navCtrl.push('ChatPage', { item: restaurant, id: restaurant.key });
+            });
+        } catch (error) {
+            let alert = this.alertCtrl.create({
+                title: 'ลงชื่อออก',
+                message: error,
+                buttons: [
+                    {
+                        text: 'ตกลง',
+                        role: 'cancel',
+                        handler: () => {
+                        }
+                    },
+                ]
+            })
+            alert.present()
+        }
+
     }
 }
 

@@ -1,0 +1,37 @@
+<ion-header>
+
+  <ion-navbar hideBackButton color="danger2">
+    <ion-buttons start>
+      <button ion-button icon-only color="advice" navPop>
+        <ion-icon name="ios-arrow-back"></ion-icon>
+      </button>
+    </ion-buttons>
+    <ion-title>{{restaurant.title}}</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content class="bg">
+
+  <div class="chat-header" *ngFor="let item of getData | async">
+    <div class="chat-content">
+      {{item.text}}
+    </div>
+  </div>
+
+</ion-content>
+
+<ion-footer>
+
+  <div class="input-wrap">
+    <button ion-button clear icon-only item-right class="icon-color">
+      <ion-icon name="md-happy"></ion-icon>
+    </button>
+    <ion-textarea [(ngModel)]="chatText.text" rows="1" placeholder="Text Input">
+    </ion-textarea>
+    <button ion-button clear icon-only item-right class="icon-color" (click)="sendChat(chatText, restaurant)">
+      <ion-icon name="ios-send"></ion-icon>
+    </button>
+  </div>
+</ion-footer>

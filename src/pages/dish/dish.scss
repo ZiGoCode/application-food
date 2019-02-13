@@ -1,17 +1,57 @@
 page-dish {
+  
+  .scroll-content{
+    padding-top: 0 !important;
+  }
+  
+  // ion-navbar{
+  //   background:transparent !important;
+  // }
+  // .navbar-bg{
+  //   background-color: rgba(255, 255, 255, 0.3);
+  // }
+  .button-bg{
+    // background-color: rgba(209, 209, 209, 0.5);
+    background-color: rgba(255, 255, 255, 0.8);
+    border-radius: 50%;
+    height: 35px;
+    width: 35px;
+    padding-left: 4px;
+    padding-top: 2px;
+  }
+  .button-bg-book{
+    background-color: rgba(255, 255, 255, 0.8);
+    border-radius: 50%;
+    height: 35px;
+    width: 35px;
+    padding-right: 7px;
+    padding-top: 2px;
+  }
+  .button-bg-chat{
+    background-color: rgba(255, 255, 255, 0.8);
+    border-radius: 50%;
+    height: 35px;
+    width: 35px;
+    padding-right: 5px;
+    padding-top: 3px;
+  }
+  .bt-color{
+    color: rgba(255, 102, 0, 0.6);
+  }
+
   .slider-pager {
     .swiper-pagination-bullet {
       background: #fff;
       // margin: 0 3px;
     }
   }
-
-  .icon-book{
-    font-size: 26px;
+  ion-content{
+    padding: 0;
+    margin-top: 0 !important;
   }
 
-  .navbar-bg{
-    background-color: rgba(255, 255, 255, 0.555);
+  .icon-book{
+    font-size: 24px;
   }
 
   .text-over{
@@ -97,9 +137,6 @@ page-dish {
   .divcol-bg{
     background-color: #ffffff !important;
   }
-  // .content-bg{
-  //   background-color: #e9e9e9;
-  // }
   
   .card-size{
     padding: 0px;

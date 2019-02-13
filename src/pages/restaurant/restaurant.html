@@ -1,6 +1,6 @@
 <ion-header>
     <ion-navbar color="danger2">
-        <ion-searchbar></ion-searchbar>
+        <ion-searchbar (ionInput)="getItems($event)"></ion-searchbar>
         <ion-buttons end class="buts-maging">
             <button ion-button (click)="onBuy()">
                 <ion-icon name="custom-cart"></ion-icon>
@@ -10,11 +10,60 @@
 </ion-header>
 
 <ion-content>
+
+    <ion-item-divider *ngIf="testData != ''" no-marging no-lines>
+        <span ion-text color="danger2" class="fontRSU">ค้นหา</span>
+    </ion-item-divider>
+    <div *ngFor="let item of testData" no-maegin no-padding>
+        <ion-row text-center text-wrap no-maegin no-padding class="polaroid1" (click)="dishPage(item)">
+            <ion-col col-3>
+                <img *ngIf="!item.img" src="../../assets/imgs/icon.png">
+                <img *ngIf="item.img" height="80px" src="{{item.img}}">
+            </ion-col>
+            <ion-col col-7 class="danger4">
+                <h1 ion-text color="danger4" class="text-ag1">{{ item.title }}</h1>
+                <p ion-text color="danger3" class="text-ag2">{{ item.type }}</p>
+                <p ion-text color="dark3" class="text-ag3">
+                    {{ item.district }},{{ item.province }}
+                </p>
+            </ion-col>
+            <ion-col col-2 no-maegin no-padding>
+                <button ion-button icon-start clear color="danger3" class="col2-m" small>
+                    <span class="danger3">
+                        <ion-icon name="star"></ion-icon>
+                    </span>
+                    <p ion-text color="danger3" class="text-ag4">3.8</p>
+                </button>
+            </ion-col>
+        </ion-row>
+        <ion-row text-center text-wrap no-maegin no-padding>
+            <ion-col col-12 no-maegin no-padding>
+                <div class="item-size2"></div>
+            </ion-col>
+        </ion-row>
+    </div>
+
+
     <ion-item-divider no-marging no-lines>
         <span ion-text color="danger2" class="fontRSU">ร้านอาหารแนะนำ</span>
     </ion-item-divider>
 
-    <div no-maegin>
+    <div class="div-padding">
+        <ion-scroll scrollX="true" class="scrool-bg">
+            <div *ngFor="let item of imageLove" class="inner">
+                <ion-card no-padding>
+                    <img src="{{ item.image }}" />
+                    <ion-card-content>
+                        <div class="card-content" no-padding>
+                            <span ion-text color="danger4">{{ item.name }}</span>
+                        </div>
+                    </ion-card-content>
+                </ion-card>
+            </div>
+        </ion-scroll>
+    </div>
+
+    <!-- <div no-maegin>
         <ion-row text-center text-wrap no-maegin no-padding class="polaroid">
             <ion-col col-3>
                 <img class="img" src="../../assets/imgs//restaurants/restaurant11sq.jpg" />
@@ -41,16 +90,17 @@
                 </div>
             </ion-col>
         </ion-row>
-    </div>
+    </div> -->
 
     <ion-item-divider no-marging no-lines>
         <span ion-text color="danger2" class="fontRSU">ร้านอาหาร</span>
     </ion-item-divider>
 
-    <div *ngFor="let item of (items | async)" no-maegin no-padding>
+    <div *ngFor="let item of dataText" no-maegin no-padding>
         <ion-row text-center text-wrap no-maegin no-padding class="polaroid1" (click)="dishPage(item)">
             <ion-col col-3>
-                <img class="img-bg" src="../../assets/imgs/icon.png" />
+                <img *ngIf="!item.img" src="../../assets/imgs/icon.png">
+                <img *ngIf="item.img" height="80px" src="{{item.img}}">
             </ion-col>
             <ion-col col-7 class="danger4">
                 <h1 ion-text color="danger4" class="text-ag1">{{ item.title }}</h1>
@@ -73,5 +123,9 @@
                 <div class="item-size2"></div>
             </ion-col>
         </ion-row>
+    </div>
+    <br />
+    <div text-center class="text-c">
+        © FOODAPP 2018
     </div>
 </ion-content>

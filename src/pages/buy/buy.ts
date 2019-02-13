@@ -39,9 +39,6 @@ export class BuyPage {
     dishMenu: Buy[] = [];
     noteng: string;
 
-
-
-
     constructor(public navCtrl: NavController,
         public navParams: NavParams,
         private angularFireAuth: AngularFireAuth,
@@ -252,7 +249,7 @@ export class BuyPage {
                             });
                             // this.angularFireDatabase.list(`buymenuid/${this.keyidJ}/menu`).push(status).then(datar => {
                             //     this.angularFireDatabase.list(`buymenuid/${this.keyidJ}/menu/${datar.key}/dish`).push(this.dis);
-                            // });
+                            // }); 
                         });
 
                         this.navCtrl.push('MyOrdersPage', { item: 1 });
