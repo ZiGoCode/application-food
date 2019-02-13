@@ -58,13 +58,18 @@ page-dish {
     padding-top: 0;
     padding-left: 5px;
     padding-right: 5px;
+    padding-bottom: 5px;
     color: #ff6600 !important;
     // font-weight: bold;
-    font-size: 18px;
+    font-size: 16px;
     // line-height:1em;
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
+  }
+  .img{
+    width: 100%;
+    height: 150px;
   }
 
   .text-type{

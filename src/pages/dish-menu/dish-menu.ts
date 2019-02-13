@@ -109,6 +109,7 @@ export class DishMenuPage {
             menu.type = this.dishMenu.type;
             menu.price = Number(this.cout);
             menu.number = Number(this.buy);
+            menu.img = this.dishMenu.img;
             // console.log(this.buy);
 
             this.angularFireDatabase.list(`buymenu/${data.uid}`).push(menu).then(() => {

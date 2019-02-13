@@ -52,9 +52,11 @@
         <ion-row class="div-pad">
             <ion-col no-border col-6 class="col-bg" *ngFor="let item of dishMenu | async" (click)="onDish(item)">
                 <div class="divcol-bg">
-                    <img class="img" src="../../assets/imgs/dishes/dish01m.jpg" />
+                    <div class="img">
+                            <img src="{{item.img}}" />
+                    </div>
                     <div class="card-size">
-                        <div class="text-over fontRSU">
+                        <div class="text-over">
                             {{item.title}}
                         </div>
                         <div class="text-type fontRSU">

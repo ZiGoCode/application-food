@@ -6,4 +6,5 @@ export interface Buy {
     price: number;
     number: number;
     keyID: any;
+    img: string;
 }

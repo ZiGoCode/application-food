@@ -21,14 +21,13 @@
     <div>
         <ion-slides pager="true" class="slider-pager">
             <ion-slide>
-                <img src="../../assets//imgs/dishes/dish01.jpg" alt="" />
+                <img src="{{ dishMenu.img }}"alt="" />
             </ion-slide>
         </ion-slides>
     </div>
 
     <div class="div-content-bg">
-        <br>
-        <span class="thick fontRSU" ion-text color="danger4">{{ dishMenu.title }} </span>
+        <span class="thick" ion-text color="danger4">{{ dishMenu.title }} </span>
         <p ion-text color="danger3" class="text-ag2 p-pad">{{ dishMenu.type }}</p>
         <p ion-text color="danger2" class="text-ag2"><span class="fontRSU">ราคา : </span>{{ dishMenu.price }}<span
                 class="fontRSU"> บาท</span></p>
@@ -44,6 +43,9 @@
             </div>
         </ion-col>
     </ion-row>
+    <br>
+    <br>
+    <br>
 </ion-content>
 
 <ion-footer no-border>

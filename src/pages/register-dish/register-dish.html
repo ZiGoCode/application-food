@@ -23,16 +23,19 @@
                     </div>
                 </ion-select>
             </ion-item>
-            <p ion-text color="danger" class="text-1x has-error" *ngIf="registerdish.get('dishid').touched && registerdish.get('dishid').hasError('required')">
+            <p ion-text color="danger" class="text-1x has-error"
+                *ngIf="registerdish.get('dishid').touched && registerdish.get('dishid').hasError('required')">
                 This field is required
             </p>
 
 
             <ion-item>
                 <ion-label color="danger1" stacked>Dish Name:</ion-label>
-                <ion-input [(ngModel)]="dish.title" type="text" placeholder="ชื่อเมนูอาหาร..." formControlName="dishname"></ion-input>
+                <ion-input [(ngModel)]="dish.title" type="text" placeholder="ชื่อเมนูอาหาร..."
+                    formControlName="dishname"></ion-input>
             </ion-item>
-            <p ion-text color="danger" class="text-1x has-error" *ngIf="registerdish.get('dishname').touched && registerdish.get('dishname').hasError('required')">
+            <p ion-text color="danger" class="text-1x has-error"
+                *ngIf="registerdish.get('dishname').touched && registerdish.get('dishname').hasError('required')">
                 This field is required
             </p>
 
@@ -48,7 +51,8 @@
                     <ion-option value="Veggie">Veggie</ion-option>
                 </ion-select>
             </ion-item>
-            <p ion-text color="danger" class="text-1x has-error" *ngIf="registerdish.get('dishtype').touched && registerdish.get('dishtype').hasError('required')">
+            <p ion-text color="danger" class="text-1x has-error"
+                *ngIf="registerdish.get('dishtype').touched && registerdish.get('dishtype').hasError('required')">
                 This field is required
             </p>
 
@@ -57,19 +61,39 @@
                 <ion-textarea [(ngModel)]="dish.ingredients" rows="5" placeholder="ส่วนประสมของหาอาร..."
                     formControlName="dishingredients"></ion-textarea>
             </ion-item>
-            <p ion-text color="danger" class="text-1x has-error" *ngIf="registerdish.get('dishingredients').touched && registerdish.get('dishingredients').hasError('required')">
+            <p ion-text color="danger" class="text-1x has-error"
+                *ngIf="registerdish.get('dishingredients').touched && registerdish.get('dishingredients').hasError('required')">
                 This field is required
             </p>
 
 
             <ion-item>
                 <ion-label color="danger1" stacked>Dish Price:</ion-label>
-                <ion-input [(ngModel)]="dish.price" type="number" placeholder="ราคา..." formControlName="dishprice"></ion-input>
+                <ion-input [(ngModel)]="dish.price" type="number" placeholder="ราคา..." formControlName="dishprice">
+                </ion-input>
             </ion-item>
-            <p ion-text color="danger" class="text-1x has-error" *ngIf="registerdish.get('dishprice').touched && registerdish.get('dishprice').hasError('required')">
+            <p ion-text color="danger" class="text-1x has-error"
+                *ngIf="registerdish.get('dishprice').touched && registerdish.get('dishprice').hasError('required')">
                 This field is required
             </p>
         </form>
+
+        <ion-grid>
+            <ion-row>
+                <ion-col col-12>
+                    <ion-item text-center no-lines>
+                        <input type="file" name="file" id="file" (change)="uploadFile($event)" class="inputfile" />
+                        <label for="file">
+                            <ion-icon name="ios-image"></ion-icon>
+                        </label>
+                        &nbsp;
+                        <ion-icon class="icon-file" color="danger1" *ngIf="!downloadURL" name="ios-close"></ion-icon>
+                        <ion-icon class="icon-file" color="secon" *ngIf="downloadURL" name="ios-checkmark"></ion-icon>
+                    </ion-item>
+                </ion-col>
+            </ion-row>
+        </ion-grid>
+
 
         <div padding-vertical>
             <h5 ion-text color="danger1" margin-bottom class="fw500">Add Images of Dish <span ion-text class="fw300">
@@ -99,7 +123,8 @@
     </button> -->
 
         <div text-center>
-            <button center ion-button full round color="secon" (click)="registerDish(dish)" [disabled]="!registerdish.valid">
+            <button center ion-button full round color="secon" (click)="registerDish(dish,downloadURL)"
+                [disabled]="!registerdish.valid">
                 <ion-icon name="ios-cloud-upload-outline"></ion-icon>
                 &nbsp; Dishes
             </button>
