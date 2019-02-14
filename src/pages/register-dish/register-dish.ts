@@ -108,9 +108,13 @@ export class RegisterDishPage {
         // }
         this.angularFireAuth.authState.take(1).subscribe(data => {
             this.uid = data.uid;
+
+            var d = new Date();
+            var date = ("0" + d.getDate()).slice(-2) + "-" + ("0" + (d.getMonth() + 1)).slice(-2) + "-" +
+                d.getFullYear() + " " + ("0" + d.getHours()).slice(-2) + ":" + ("0" + d.getMinutes()).slice(-2) + ":" + ("0" + d.getSeconds()).slice(-2);
+
             const file = event.target.files[0];
-            const date = new Date().toLocaleString();
-            const filePath = `imagedish/${data.uid}/profile/${date}`;
+            const filePath = `imagedish/${data.uid}/${date}`;
             const fileRef = this.angularFireStorage.ref(filePath);
             const task = this.angularFireStorage.upload(filePath, file);
             this.uploadPercent = task.percentageChanges();

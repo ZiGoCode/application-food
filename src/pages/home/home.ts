@@ -98,6 +98,7 @@ export class HomePage {
     ];
 
     items: Observable<any[]>;
+    dateFormat: any;
     constructor(
         public navCtrl: NavController,
         public navParams: NavParams,
@@ -113,6 +114,17 @@ export class HomePage {
                     ...c.payload.val()
                 }));
             });
+
+
+        var d = new Date();
+        var datestring = d.getDate() + "-" + (d.getMonth() + 1) + "-" + d.getFullYear() + " " +
+            d.getHours() + ":" + d.getMinutes();
+
+        var datestring1 = ("0" + d.getDate()).slice(-2) + "-" + ("0"+(d.getMonth()+1)).slice(-2) + "-" +
+            d.getFullYear() + " " + ("0" + d.getHours()).slice(-2) + ":" + ("0" + d.getMinutes()).slice(-2) + ":" + ("0" + d.getSeconds()).slice(-2);
+        
+        console.log("Time ", datestring);
+        console.log("Time1 ", datestring1);
 
     }
 
