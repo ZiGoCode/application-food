@@ -19,6 +19,31 @@
         </span>
     </ion-item>
 
+    <div>
+        <ion-card>
+            <ion-card-header>
+                <div class="card-header">
+                    รายการอาหาร
+                </div>
+            </ion-card-header>
+            <ion-card-content>
+                <div *ngFor="let item of tomorrow.dish">
+                    <ion-row>
+                        <ion-col col-8 class="text-col">
+                            {{item.type}}
+                        </ion-col>
+                        <ion-col col-4>
+                            {{item.price}} บาท
+                        </ion-col>
+                    </ion-row>
+                </div>
+                <div class="div-baht">
+                    ราคารวม {{tomorrow.baht}} บาท
+                </div>
+            </ion-card-content>
+        </ion-card>
+    </div>
+
     <div *ngFor="let item of itemMyOrder | async" class="div-content">
         <ion-row>
             <ion-col col-1>

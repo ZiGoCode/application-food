@@ -4,6 +4,7 @@ import { AngularFireAuth } from 'angularfire2/auth';
 import { AngularFireDatabase } from 'angularfire2/database';
 import { Observable } from 'rxjs';
 import { Baht } from '../../firebase/baht';
+import { ModalController } from 'ionic-angular';
 
 @IonicPage()
 @Component({
@@ -19,6 +20,11 @@ export class OrdersPage {
     statusid = new Array();
     bass: number;
     qty: any;
+    timeDown: number = 65;
+    nametime: string;
+    timer: any;
+
+    showdish: boolean = false;
 
     constructor(
         public navCtrl: NavController,
@@ -26,7 +32,9 @@ export class OrdersPage {
         private angularFireAuth: AngularFireAuth,
         private angularFireDatabase: AngularFireDatabase,
         public loadingCtrl: LoadingController,
-        public appCtrl: App) {
+        public appCtrl: App,
+        private modal: ModalController
+    ) {
 
         this.angularFireAuth.authState.take(1).subscribe(data => {
             this.itemsBuy = this.angularFireDatabase.list(`buymenuid/${data.uid}/menu`)
@@ -40,7 +48,7 @@ export class OrdersPage {
         this.getNotData();
         // this.getnumber = this.getData();
         // console.log(JSON.stringify(this.itemsBuy));
-
+        // this.startTimer();
     }
 
     ionViewDidLoad() {
@@ -53,23 +61,39 @@ export class OrdersPage {
                 .subscribe(res => {
                     this.bass = res.length;
                     this.qty = res.length;
-                    console.log('qty+',this.qty)
+                    // console.log('qty+', this.qty)
                     for (let i = 0; i < res.length; i++) {
                         this.getDa = res[i];
                         const data = this.getDa.status;
                         const data1 = "สำเร็จ";
-                        console.log('Status',data,data1);
+                        // console.log('Status', data, data1);
                         if (data == data1) {
-                            this.qty = Number(this.qty - 1);  
+                            this.qty = Number(this.qty - 1);
                         }
                     }
-                    console.log('qty--',this.qty)
+                    // console.log('qty--', this.qty)
                 });
         });
     }
 
     status(item) {
         this.appCtrl.getRootNav().push('StatusOrdersPage', { item: item, key: item.key }, { animate: true, direction: 'forward' });
+    }
+
+    startTimer() {
+        setTimeout(() => {
+            this.timeDown--;
+            if (this.timeDown > 0) {
+                this.startTimer();
+            }
+            // console.log('นับเวลา', this.timeDown);
+        }, 1000);
+    }
+
+    onShow(item) {
+        console.log("data: ",item);
+        const modal = this.modal.create('ModalPage', { item: item, key: item.key });
+        modal.present();
     }
 
 

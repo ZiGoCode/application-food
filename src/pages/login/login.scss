@@ -32,6 +32,48 @@ page-login {
     .dark2{
         color: #fff;
     }
+    .img-logo{
+        width: 150px !important;
+        height: 150px !important;
+    }
+    .img-logo-text{
+        margin-top: 0;
+        width: 200px !important;
+    }
+    .button-bg{
+        background-image: linear-gradient(to right, #ff3c00 , #ff7b00) !important;
+    }
+    .col-facebook{
+        text-align: right;
+        padding-right: 15px;
+    }
+    .facebook{
+        border-radius: 50%;
+        width: 55px;
+        height: 55px;
+        color: #f4f4f4;
+        text-align: center;
+        padding: 0;
+        font-size: 24px;
+        background-color: #3b5998;
+        box-shadow: 0 5px 10px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0);
+    }
+    .col-google{
+        text-align: left;
+        padding-left: 15px;
+    }
+    .google{
+        border-radius: 50%;
+        width: 55px;
+        height: 55px;
+        color: #f4f4f4;
+        text-align: center;
+        padding: 0;
+        font-size: 24px;
+        background-color: #dd4b39;
+        box-shadow: 0 5px 10px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0);
+    }
+    
 }
 
 .bg-style{
@@ -42,21 +84,20 @@ page-login {
     // background-size: cover;  
     // background-position: center;  
     // background-color: #FF6C00; 
-    background-color: #ff6600;  
+    background: linear-gradient(10deg,#ff9914,#ff5100);
+
+    // background-color: #ff6600;  
 } 
 .card-background-page {
     // background: rgba(255, 255, 255, 0.6);
     box-shadow: none;
-    background-color: #ff6600;
+    background-color: rgba(255, 102, 0, 0);
     border-radius: 10px;
     z-index: 100;
 }
 .card-title {
-    background-color: #ff6600;
+    background-color: rgba(255, 102, 0, 0);
 } 
-.subtitle { 
-    width: 250px;
-}
 .bgfc{
     height: 20px;
 }

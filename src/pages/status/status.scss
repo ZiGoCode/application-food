@@ -2,6 +2,12 @@ page-status {
     .bg{
         background-color: #f3f3f3;
     }
+    .div-baht{
+        margin-top: 5px;
+    }
+    .card-header{
+        font-weight: bold;
+    }
 
     .div-content{
         margin-top: 3px;
@@ -38,6 +44,7 @@ page-status {
         height: 25px !important;
         width: 1px !important;
     }
-    
-
+    .text-col{
+        text-align: left;
+    }
 }

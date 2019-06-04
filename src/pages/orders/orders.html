@@ -12,15 +12,15 @@
         มีรายการอยู่ {{qty}} รายการที่ยังรอนำเดินการ
     </div>
 
-    <div *ngFor="let item of itemsBuy | async" class="div-content" (click)="status(item)">
+    <div *ngFor="let item of itemsBuy | async" class="div-content">
         <ion-row>
             <ion-col col-1>
                 <!-- <ion-icon name="ios-notifications"></ion-icon> -->
                 <ion-icon color="{{item.ioconcolor}}" name="ios-notifications"></ion-icon>
-                
+
             </ion-col>
 
-            <ion-col col-11 class="text-a">
+            <ion-col col-9 class="text-a" (click)="status(item)">
                 <span>
                     รหัสการสั้งชื้อ :
                     <span ion-text color="dark2">{{item.number}}</span>
@@ -40,9 +40,15 @@
                     เวลา : <span ion-text color="dark2">{{item.date}}</span>
                 </span>
             </ion-col>
+            <ion-col col-2>
+                <a (click)="onShow(item)">View</a>
+            </ion-col>
         </ion-row>
-
-
+        <!-- <div *ngIf="showdish">
+            <ion-card>
+                sdf
+            </ion-card>
+        </div> -->
     </div>
 
     <div class="div-notdata" text-center *ngIf="bass == 0">
@@ -50,5 +56,7 @@
         <br>
         <samp ion-text color="dark3">No Information</samp>
     </div>
+
+
 
 </ion-content>

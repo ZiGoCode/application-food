@@ -17,14 +17,14 @@ import { Buy } from '../../firebase/buy';
 })
 export class BuyPage {
     @ViewChild(Content) content: Content;
-
+    
     itemsBuy: Observable<any[]>;
     baht = 0;
     buyBaht: any;
     numbers = new Array();
     element = 0;
     keyTeble: any;
-    heroes = ['AB01', 'AB02', 'AB03', 'AB04'];
+    heroes = ['AB01', 'AB02', 'AB03', 'AB04', 'AB05', 'AB06', 'AB07', 'AB08', 'AB09', 'AB10'];
     dis: any;
     dishBaht: any;
     numberdis: number;
@@ -59,14 +59,7 @@ export class BuyPage {
         this.noteDish.note = '';
 
         console.log('---', this.dishMenu);
-
     }
-
-
-    ionViewDidLoad() {
-        // console.log(this.dishdeteil);
-    }
-
     getBaht() {
         this.angularFireAuth.authState.take(1).subscribe(data => {
             this.angularFireDatabase.list(`buymenu/${data.uid}`).valueChanges()
@@ -88,7 +81,6 @@ export class BuyPage {
                 });
         });
     }
-
     getOder() {
         this.angularFireDatabase.list(`buymenuid/${this.keyidJ}/menu/`).valueChanges()
             .subscribe(res => {
@@ -261,7 +253,6 @@ export class BuyPage {
                     }
                     loader.dismiss();
                 }
-
             });
             alert.present();
         }

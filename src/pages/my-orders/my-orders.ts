@@ -1,8 +1,9 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, Select } from 'ionic-angular';
 import { AngularFireDatabase } from 'angularfire2/database';
 import { AngularFireAuth } from 'angularfire2/auth';
 import { Observable } from 'rxjs';
+import { timeInterval } from 'rxjs/operators';
 
 /**
  * Generated class for the MyOrdersPage page.
@@ -21,12 +22,13 @@ export class MyOrdersPage {
     itenbuttom: number = 0;
     itemsBuy: Observable<any[]>;
     bass: number;
+    
 
     constructor(
-        public navCtrl: NavController, 
+        public navCtrl: NavController,
         public navParams: NavParams,
         private angularFireAuth: AngularFireAuth,
-        private angularFireDatabase: AngularFireDatabase,) {
+        private angularFireDatabase: AngularFireDatabase, ) {
 
         if (this.navParams.get("item")) {
             this.itenbuttom = this.navParams.get("item");
@@ -42,7 +44,6 @@ export class MyOrdersPage {
                 });
         });
         this.getNotData()
-
     }
     getNotData() {
         this.angularFireAuth.authState.take(1).subscribe(data => {
@@ -74,8 +75,8 @@ export class MyOrdersPage {
         return Math.floor(Math.random() * Math.floor(max_val - min_val + 1)) + min_val;
     }
 
-    statusPage(item){
-        this.navCtrl.push('StatusPage', {item: item});
+    statusPage(item) {
+        this.navCtrl.push('StatusPage', { item: item });
     }
 
 }
